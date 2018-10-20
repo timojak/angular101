@@ -5,9 +5,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   template: `
   <input  #inputElementRef
           [value]="title"
-          (keyup.enter)="changeTitle(inputElementRef)">
+          (keyup.enter)="submitValue($event.target.value)">
 ​
-  <button (click)="changeTitle(inputElementRef)">
+  <button (click)="submitValue(inputElementRef)">
     Save
   </button>
   {{title}}
@@ -23,7 +23,7 @@ export class InputButtonUnitComponent implements OnInit {
   ngOnInit() {
   }
 ​
-  changeTitle(inputElementReference) {
+  submitValue(inputElementReference) {
     this.submit.emit(inputElementReference.value)
     
   }
